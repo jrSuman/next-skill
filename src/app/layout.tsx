@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 import TheNavbar from "@/components/TheNavbar";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next Skills Academy",
@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="bg-slate-50">
-        {/* <TheNavbar /> */}
+      <body>
+        <main className="bg-white">
+        <TheNavbar />
         {children}
         </main>
        
