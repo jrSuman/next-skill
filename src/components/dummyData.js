@@ -7,6 +7,7 @@ export const courses  = [
     "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
     duration: 3,
     time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+    level: 0
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const courses  = [
     "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
     duration: 3,
     time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+    level: 1
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const courses  = [
     "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
     duration: 3,
     time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+    level: 2
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const courses  = [
     "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
     duration: 3,
     time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+    level: 2
   },
   {
     id: 5,
@@ -43,5 +47,36 @@ export const courses  = [
     "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
     duration: 3,
     time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
-  }
+    level: 0
+  },
+  {
+    id: 6,
+    title: "Python with Django",
+    image: "https://img-c.udemycdn.com/course/480x270/16429_c92e_5.jpg",
+    description:
+    "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
+    duration: 3,
+    time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+    level: 1
+  },
+  // {
+  //   id: 7,
+  //   title: "MERN Stack Training",
+  //   image: "https://img-c.udemycdn.com/course/480x270/16429_c92e_5.jpg",
+  //   description:
+  //   "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
+  //   duration: 3,
+  //   time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+  //   level: 2
+  // },
+  // {
+  //   id: 8,
+  //   title: "React Stack Training",
+  //   image: "https://img-c.udemycdn.com/course/480x270/16429_c92e_5.jpg",
+  //   description:
+  //   "Join The 90,000+ Students Who Are Learning Real-World Skills AND Earning Their CCNA!",
+  //   duration: 3,
+  //   time: ['2:30 - 3:30 am','2:30 - 3:30 am'],
+  //   level: 2
+  // },
 ]

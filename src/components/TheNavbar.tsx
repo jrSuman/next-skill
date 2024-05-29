@@ -3,7 +3,7 @@ import AppMainSearchBar from "./AppMainSearchBar";
 
 const TheNavbar = () => {
   return (
-    <div className="bg-white py-3 flex border-b sticky top-0">
+    <div className="bg-white py-3 flex border-b sticky top-0 z-10">
       <div className="container flex mx-auto justify-between gap-x-32">
         <div className="flex gap-x-10 items-center grow">
           <div className="flex gap-3">

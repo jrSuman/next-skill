@@ -33,7 +33,7 @@ const AppButton = (props: BaseProps) => {
     to,
   } = props;
 
-  const defaultClass = ` px-4 py-3 cursor-pointer rounded relative overflow-hidden  before:content-[''] before:absolute before:w-[40px] before:h-full before:top-0 before:-left-[44px] before:opacity-20 hover:scale-[1.02] transition-all hover:before:animate-shine before:bg-gradient-to-r before:from-white/5 before:to-primary-100 before:-skew-x-12 hover:shadow  enabled:active:scale-95 border border-2 font-semibold text-sm`;
+  const defaultClass = ` px-6 py-3 cursor-pointer rounded-full relative overflow-hidden  before:content-[''] before:absolute before:w-[40px] before:h-full before:top-0 before:-left-[44px] before:opacity-20 hover:scale-[1.02] transition-all hover:before:animate-shine before:bg-gradient-to-r before:from-white/5 before:to-primary-100 before:-skew-x-12 hover:shadow  enabled:active:scale-95 border border-2 font-semibold text-sm`;
 
   const primaryClass = 'bg-primary-500 text-white border-primary-500'
   

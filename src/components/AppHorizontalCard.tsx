@@ -2,7 +2,7 @@
 
 import AppButton from "./AppButton";
 
-const AppProductCard = ({ data }) => {
+const AppHorizontalCard = ({ data }) => {
   return (
     <div className="border w-full h-full rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all">
       <div className="w-full aspect-video bg-yellow-500 rounded-lg mb-2 overflow-hidden">
@@ -65,4 +65,4 @@ const AppProductCard = ({ data }) => {
   );
 };
 
-export default AppProductCard;
+export default AppHorizontalCard;

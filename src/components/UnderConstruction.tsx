@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroImage from "@/assets/images/underConstruction.jpeg";
+// import heroImage from "@/assets/images/underConstruction.jpeg";
 
 const UnderConstruction = () => {
   return (
@@ -50,9 +50,11 @@ const UnderConstruction = () => {
         </div>
         <div className="py-10 md:w-2/5 w-full">
           <Image
-            src={heroImage}
+            src={'/assets/images/underConstruction.jpeg'}
             alt="Under construction"
             className="w-full h-auto"
+            width={320}
+            height={320}
           />
         </div>
       </div>

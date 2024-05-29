@@ -1,8 +1,8 @@
 import Image from "next/image";
 import AppButton from "./AppButton";
-import heroImg from "@/assets/images/hero.svg";
+// import heroImg from "@/assets/images/hero.svg";
 import AppProductCard from "./AppProductCard";
-import {courses} from '@/assets/dummyData.js';
+import {courses} from './dummyData.js';
 const LandingPage = () => {
   return (
     <div className="">
@@ -37,24 +37,45 @@ const LandingPage = () => {
         </div>
         <div className="">
           {/* <Image src={heroImg} alt="Hero image" className="w-full" /> */}
-          <Image src={heroImg} alt="Hero image" className="w-full h-auto" />
+          <Image src='/assets/images/hero.svg' alt="Hero image" className="w-full h-auto" width={100} height={100}/>
           {/* <img  alt="" /> */}
         </div>
       </div>
 
       {/* span Popular courses */}
-      <div className="min-h-screen w-full flex flex-col py-10 bg-red-50">
-        <div className="">
-          <h3>Explore courses</h3>
+      <div className="min-h-screen w-full flex flex-col py-10 items-center">
+        <div className="flex justify-center py-10">
+          <h3 className="text-3xl font-semibold">Some of our awesome courses</h3>
         </div>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-8 mb-16">
           {
             courses.map(elem => (
               <AppProductCard  key={elem.id} data={elem}/>
             ))
           }
-      
         </div>
+        <div className="mb-4">
+          <AppButton>See All Our Courses</AppButton>
+        </div>
+        <span className="text-gray-400 text-thin">Learn from industry Expert and Professionals</span>
+      </div>
+
+
+      <div className="min-h-screen w-full flex flex-col py-10 items-center">
+        <div className="flex justify-center py-10">
+          <h3 className="text-3xl font-semibold">Upcoming Events</h3>
+        </div>
+        <div className="grid md:grid-cols-2  gap-8 mb-16">
+          {
+            courses.map(elem => (
+              <AppProductCard  key={elem.id} data={elem}/>
+            ))
+          }
+        </div>
+        <div className="mb-4">
+          <AppButton>See All Our Courses</AppButton>
+        </div>
+        <span className="text-gray-400 text-thin">Learn from industry Expert and Professionals</span>
       </div>
     </div>
   );
