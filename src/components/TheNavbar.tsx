@@ -66,7 +66,7 @@ const TheNavbar = () => {
         </div>
 
         <div className="">
-          <AppButton>Send Enquiry</AppButton>
+          <AppButton outline>Send Enquiry</AppButton>
         </div>
       </div>
 

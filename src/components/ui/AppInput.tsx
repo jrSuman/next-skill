@@ -1,14 +1,14 @@
 interface PropsInterface {
-  placeholder: string;
-  label: string | null;
-  id: string | null;
-  name: string;
-  type: any;
-  required: boolean;
+  placeholder?: string;
+  label?: string;
+  id?: string | null;
+  name?: string;
+  type?: any;
+  required?: boolean;
 }
 
 const AppInput = (props: PropsInterface) => {
-  const { placeholder, label, id, name, type, required = false } = props;
+  const { placeholder, label = null, required = false, name } = props;
   return (
     <>
       {label && <label htmlFor="">{label}</label>}

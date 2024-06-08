@@ -44,11 +44,11 @@ const TheFooter = () => {
                 <div className="flex flex-col gap-3">
                   <div className="inline-flex gap-x-4 items-center">
                     <AppIcon name="telephone" className="w-4 h-4" />
-                    <span>678902983</span>
+                    <span>+01-5454439</span>
                   </div>
                   <div className="inline-flex gap-x-4 items-center">
                     <AppIcon name="envelope" className="w-4 h-4" />
-                    <span>suman.s@shikhartech.com</span>
+                    <span>nextskillsacademy@gmail.com</span>
                   </div>
                 </div>
               </div>

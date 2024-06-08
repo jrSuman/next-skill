@@ -3,12 +3,12 @@
 import { useRouter } from "next/navigation";
 import AppButton from "./AppButton";
 
-const AppProductCard = ({ data }) => {
+const AppProductCard = ({ data }: any) => {
 
   const router = useRouter()
   return (
-    <div className="border w-full h-full rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all" onClick={() => router.push('/courses/1')}>
-      <div className="w-full aspect-video bg-yellow-500 rounded-lg mb-2 overflow-hidden">
+    <div className="border w-full h-full rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all">
+      <div className="w-full aspect-video bg-blue-50 rounded-lg mb-2 overflow-hidden">
         <img
           src={data.image}
           alt={data.image}

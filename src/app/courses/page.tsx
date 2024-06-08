@@ -162,7 +162,7 @@ import AppProductCard from "@/components/ui/AppProductCard"
   ]
   return (
       <div className="container mx-auto flex gap-10">
-         <div className="w-[240px] border-r pr-5 py-5 flex flex-col gap-4">
+         <div className="w-[240px] border-r pr-5 py-5 md:flex hidden flex-col gap-4">
             <div className="">
             <span>All Courses</span>
             </div>
