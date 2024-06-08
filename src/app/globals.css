@@ -8,6 +8,7 @@
 :root{
   font-family: "Mulish", sans-serif;
   font-size: 16px;
+  @apply text-gray-700
 }
 
 /* :root {
