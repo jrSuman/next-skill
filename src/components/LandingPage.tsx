@@ -7,7 +7,7 @@ import { courses } from "./dummyData.js";
 import AppHorizontalCard from "./ui/AppHorizontalCard";
 import { useRouter } from "next/navigation";
 import AppIcon from "./ui/AppIcon";
-import AppExploreBtn from "./ui/AppEXploreBtn";
+import AppExploreBtn from "./ui/AppExploreBtn";
 
 const LandingPage = () => {
   const router = useRouter();
