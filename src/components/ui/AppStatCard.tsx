@@ -1,9 +1,9 @@
 import AppIcon from "./AppIcon";
 
 interface PropsTypes{
-  icon: string;
-  label: string;
-  value: string;
+  icon?: string;
+  label?: string;
+  value?: string;
 }
 
 const AppStatCard = (props: PropsTypes) => {

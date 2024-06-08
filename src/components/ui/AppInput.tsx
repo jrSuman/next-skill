@@ -1,10 +1,10 @@
 interface PropsInterface {
-  placeholder: string;
-  label: string | null;
-  id: string | null;
-  name: string;
-  type: any;
-  required: boolean;
+  placeholder?: string;
+  label?: string | null;
+  id?: string | null;
+  name?: string;
+  type?: any;
+  required?: boolean;
 }
 
 const AppInput = (props: PropsInterface) => {

@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import AppButton from "./AppButton";
 
-const AppProductCard = ({ data }) => {
+const AppProductCard = ({ data }:any) => {
 
   const router = useRouter()
   return (

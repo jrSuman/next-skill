@@ -2,10 +2,10 @@ import Link from "next/link";
 import { ReactNode } from 'react';
 
 interface PropsInterface{
-  to: string;
-  children: ReactNode;
-  href: string;
-  className: string;
+  to?: string;
+  children?: ReactNode;
+  href?: string;
+  className?: string;
 }
 
 const AppLink = (props: PropsInterface) => {

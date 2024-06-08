@@ -2,7 +2,7 @@
 
 import AppButton from "./AppButton";
 
-const AppHorizontalCard = ({ data }) => {
+const AppHorizontalCard = ({ data }:any) => {
   return (
     <div className="border w-full h-[240px] rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all flex gap-4">
       <div className="h-full aspect-video bg-yellow-500 rounded-lg mb-2 overflow-hidden">
