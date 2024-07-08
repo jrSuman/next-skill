@@ -1,16 +1,63 @@
 "use client";
 import AppButton from "./ui/AppButton";
 import AppMainSearchBar from "./AppMainSearchBar";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSelectedLayoutSegment } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import AppIcon from "./ui/AppIcon";
 import AppLink from "./ui/AppLink";
+import api from "@/app/pages/api/axios"
 
 const TheNavbar = () => {
   const router = useRouter();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const dropdownRef = useRef<any>(null);
+
+  const [showCatagories, setShowCategories] = useState(false);
+  const [coursesCategory, setCoursesCategory] = useState<any>([])
+
+  useEffect(() => {
+    const handleOutSideClick = (event: any) => {
+      if (!dropdownRef.current?.contains(event.target)) {
+        // alert("Outside Clicked.");
+        // console.log("Outside Clicked. ");
+        setShowCategories(false)
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutSideClick);
+    };
+  }, [dropdownRef]);
+
+  const fetchCategory = async () => {
+    try{
+      const res = await api.get('/category/')
+      console.log('response', res)
+      if(res.status == 200){
+        setCoursesCategory(res.data)
+      }
+    }catch(error){
+      console.log("eroor", error)
+    }
+  }
+
+  useEffect(() => {
+    fetchCategory()
+  },[])
+
+
+const activeSegment = useSelectedLayoutSegment();
+
+useEffect(() => {
+  setIsMenuVisible(false);
+}, [activeSegment]);
+
+
   return (
-    <div className="bg-white py-3 flex border-b sticky top-0 z-10 ">
+    <div className="bg-white py-3 flex border-b sticky top-0 z-30 ">
       <div className="container lg:flex hidden mx-auto justify-between gap-x-32">
         <div className="flex gap-x-10 items-center grow">
           <div
@@ -24,8 +71,8 @@ const TheNavbar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M103.877 39.4184C90.4685 39.4184 71.5195 50.2872 72.8594 70.2746C74.5706 95.7997 95.7997 100 103.716 100C110.985 100 133.279 94.0226 133.279 69.3053C133.279 45.986 115.509 40.5652 103.877 39.4184ZM89.4992 64.4588L102.585 51.3732L116.801 64.4588L111.632 69.3053L106.624 65.2666V88.3683H99.0307V65.2666L94.5073 69.3053L89.4992 64.4588Z"
                 fill="#FEBC4B"
               />
@@ -45,7 +92,11 @@ const TheNavbar = () => {
               <span className="font-semibold text-sm leading-4">Academy</span>
             </div>
           </div>
-          <div className="px-3 flex gap-x-2 items-center cursor-pointer">
+          <div className="cursor-pointer relative" ref={dropdownRef}>
+            <div className="px-3 flex gap-x-2 items-center" 
+            onClick={() => router.push('/courses')}
+              // onClick={()=> setShowCategories(!showCatagories)}
+            >
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,15 +109,56 @@ const TheNavbar = () => {
                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
               </svg>
             </span>
-            <span className="font-semibold">Categories</span>
+            {/* <span className="font-semibold">Categories</span> */}
+            <span className="font-semibold">Courses</span>
+            </div>
+
+            {/* categores modal */}
+            {showCatagories && (
+              <div className="fixed top-16 left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-b-2xl flex gap-5 overflow-hidden">
+                <div className=" min-w-[260px] p-5">
+                  {coursesCategory.map((category:any, index:number) => (
+                    <button
+                      type="button"
+                      key={category.name}
+                      className={
+                        "px-3 py-2 rounded-lg hover:bg-primary-50 flex w-full  justify-between items-center"
+                      }
+                      onClick={() => setActiveIndex(index)}
+                    >
+                      <span>{category.name}</span>
+                      {
+                        category.children.length > 0 &&
+                      <AppIcon name="chevron-right"></AppIcon>
+                      }
+                    </button>
+                  ))}
+                </div>
+                <div className=" min-w-[260px] border-l p-5 flex flex-col">
+                  {coursesCategory[activeIndex].children.map((item:any) => (
+                    <AppLink to="./courses" key={item.id} className="px-3 py-2 rounded-lg hover:bg-primary-50 flex w-full  justify-between items-center">
+                      {item.name}
+                    </AppLink>
+                  ))}
+                </div>
+                <div className="p-5">
+                  <div className="min-w-[260px] border border-emerald-500 p-5 rounded-lg">
+                  <span>Upcoming events</span>
+                  <ul>
+                    <li>Git Crash Course</li>
+                    <li>Into To UI/UX</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <div className="flex flex-1">
             <AppMainSearchBar />
           </div>
         </div>
-
         <div className="">
-          <AppButton outline>Send Enquiry</AppButton>
+          <AppButton outline onClick={()=> router.push('/contact-us')}>Send Enquiry</AppButton>
         </div>
       </div>
 
@@ -79,8 +171,8 @@ const TheNavbar = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M103.877 39.4184C90.4685 39.4184 71.5195 50.2872 72.8594 70.2746C74.5706 95.7997 95.7997 100 103.716 100C110.985 100 133.279 94.0226 133.279 69.3053C133.279 45.986 115.509 40.5652 103.877 39.4184ZM89.4992 64.4588L102.585 51.3732L116.801 64.4588L111.632 69.3053L106.624 65.2666V88.3683H99.0307V65.2666L94.5073 69.3053L89.4992 64.4588Z"
               fill="#FEBC4B"
             />
@@ -116,8 +208,8 @@ const TheNavbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M103.877 39.4184C90.4685 39.4184 71.5195 50.2872 72.8594 70.2746C74.5706 95.7997 95.7997 100 103.716 100C110.985 100 133.279 94.0226 133.279 69.3053C133.279 45.986 115.509 40.5652 103.877 39.4184ZM89.4992 64.4588L102.585 51.3732L116.801 64.4588L111.632 69.3053L106.624 65.2666V88.3683H99.0307V65.2666L94.5073 69.3053L89.4992 64.4588Z"
                   fill="#FEBC4B"
                 />
@@ -140,10 +232,10 @@ const TheNavbar = () => {
             <AppLink to="/courses" className="p-2">
               <span>Courses</span>
             </AppLink>
-            <AppLink to="/" className="p-2">
+            {/* <AppLink to="/" className="p-2">
               <span>About Us</span>
-            </AppLink>
-            <AppLink to="/" className="p-2">
+            </AppLink> */}
+            <AppLink to="/contact-us" className="p-2">
               <span>Contact Us</span>
             </AppLink>
           </div>

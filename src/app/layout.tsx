@@ -19,12 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="bg-white">
+        <main className="bg-gray-50">
         <TheNavbar />
-        <div className="min-h-[50vh]">
+        <div className="min-h-[80vh]">
         {children}
         </div>
         <TheFooter />
+        <div id="myPortal" />
         </main>
        
       </body>

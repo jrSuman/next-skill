@@ -27,6 +27,7 @@ const AppIcon = (props:any) => {
 
   return(
     <>
+    {/* <span>{iconLink}</span> */}
     <svg className={classes} viewBox="0 0 16 16" v-bind="$attrs">
       <use
         xmlns="http://www.w3.org/2000/svg"

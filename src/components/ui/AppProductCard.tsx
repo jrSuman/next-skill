@@ -2,12 +2,13 @@
 "use client"
 import { useRouter } from "next/navigation";
 import AppButton from "./AppButton";
+import Link from "next/link";
 
 const AppProductCard = ({ data }: any) => {
 
   const router = useRouter()
   return (
-    <div className="border w-full h-full rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all">
+    <div className="border border-gray-200 w-full h-full rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all bg-white relative">
       <div className="w-full aspect-video bg-blue-50 rounded-lg mb-2 overflow-hidden">
         <img
           src={data.image}
@@ -36,18 +37,18 @@ const AppProductCard = ({ data }: any) => {
           </div>
 
           <div className="text-sm text-gray-500">
-            <span className=" line-clamp-2">{data.description}</span>
+            <span className=" line-clamp-2">{data.short_description}</span>
           </div>
         </div>
 
         <div className="flex justify-between items-center">
           
-          {data.level == 0 && (
+          {data.level === 'BEGINNER' && (
             <span className="text-green-500 bg-green-50 px-2 py-0.5 text-sm rounded">
               Beginner
             </span>
           )}
-          {data.level == 1 && (
+          {data.level === 'INTERMEDIATE' && (
             <span className="text-indigo-500 bg-indigo-50 px-2 py-0.5 text-sm rounded">
               Intermediate
             </span>
@@ -64,6 +65,8 @@ const AppProductCard = ({ data }: any) => {
         </div> */}
         {/* <div className="">Time: 10:30 - 11:30</div> */}
       </div>
+
+      <Link className="absolute inset-0" href={`./courses/${data.id}`}></Link>
     </div>
   );
 };
