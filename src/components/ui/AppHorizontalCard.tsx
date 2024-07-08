@@ -2,7 +2,11 @@
 
 import AppButton from "./AppButton";
 
+<<<<<<< HEAD
 const AppHorizontalCard = ({ data }: any) => {
+=======
+const AppHorizontalCard = ({ data }:any) => {
+>>>>>>> 122e7705b99348a1f1d76ce6227e3cdfff8ddf3b
   return (
     <div className="border w-full md:h-[240px] rounded-xl overflow-hidden  p-2 cursor-pointer hover:shadow-lg transition-all flex md:flex-row flex-col gap-4">
       <div className="h-full aspect-video bg-blue-50 rounded-lg mb-2 overflow-hidden">
