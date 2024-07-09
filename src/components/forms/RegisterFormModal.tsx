@@ -120,7 +120,8 @@ const RegisterFormModal = (props:any) => {
   };
 
   const triggerSubmit = () => {
-    console.log('re', formRef.current.click())
+    // console.log('re', formRef.current.click())
+    formRef.current.click()
   }
   return (
     <>

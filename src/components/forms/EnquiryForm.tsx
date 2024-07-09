@@ -64,7 +64,7 @@ const EnquiryForm = () => {
 
     try {
       const res = await api.post("/enquiry/", formData);
-      console.log("response", res);
+      // console.log("response", res);
       if (res.statusText == "Created") {
         setTempUser(res.data);
         setLoading(false);

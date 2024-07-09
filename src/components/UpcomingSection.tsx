@@ -14,7 +14,7 @@ const UpcomingSection = () => {
     try {
       const res = await api.get("/event/");
       if (res.status == 200) {
-        console.log("event", res);
+        // console.log("event", res);
         // setCoursesCategory(res.data)
         setCourse(res.data[0]);
         setLoading(false);
@@ -29,19 +29,34 @@ const UpcomingSection = () => {
     fetchCourse();
   }, []);
 
+  const formatDate = (elem: any) => {
+    // console.log('toLocaleDateString', date.split('T'))
+    // formatDate
+    const date = new Date(elem);
+    const year = date.getFullYear();
+    let month: any = date.getMonth() + 1;
+    let dt: any = date.getDate();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+
+    if (dt < 10) {
+      dt = "0" + dt;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+
+    // console.log(year + "-" + month + "-" + dt + ' ' + hour +':'+minute);
+
+    return year + "-" + month + "-" + dt + ' ' + hour +':'+minute
+  };
+
   if (loading) return;
 
   return (
     <div className="md:py-20 py-14">
       <div className="  rounded-xl grid lg:grid-cols-5 md:grid-cols-2 lg:gap-10 gap-8 border border-gray-200 overflow-hidden bg-white">
         <div className="bg-gray-500/20 lg:col-span-2">
-          {/* <Image
-            src="/images/img2.jpg"
-            alt="Hero image"
-            className="w-full h-full object-center object-cover"
-            width={520}
-            height={520}
-          /> */}
           <img
             src={course.image}
             alt={course.image}
@@ -68,7 +83,7 @@ const UpcomingSection = () => {
               <AppIcon name="calendar" className="w-5 h-5 text-gray-500 mt-1" />
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">Session Date</span>
-                <span>{course.event_date}</span>
+                <span>{formatDate(course.event_date)}</span>
               </div>
             </div>
 

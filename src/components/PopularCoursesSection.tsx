@@ -54,7 +54,7 @@ const PopularCoursesSection = () => {
     try {
       const res = await api.get("/course/");
       if (res.status == 200) {
-        console.log("response", res);
+        // console.log("response", res);
         // setCoursesCategory(res.data)
         setCourses(res.data);
         setLoading(false);

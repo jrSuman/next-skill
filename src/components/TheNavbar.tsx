@@ -35,7 +35,7 @@ const TheNavbar = () => {
   const fetchCategory = async () => {
     try{
       const res = await api.get('/category/')
-      console.log('response', res)
+      // console.log('response', res)
       if(res.status == 200){
         setCoursesCategory(res.data)
       }

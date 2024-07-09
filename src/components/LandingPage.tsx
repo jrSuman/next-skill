@@ -16,23 +16,25 @@ const LandingPage = () => {
             <span className="text-gray-400 text-base">Qualified Teachers</span>
           </div>
           <div className="col-span-2 row-span-2 flex bg-blue-50 rounded-2xl overflow-hidden relative">
-            <Image
+            {/* <Image
               src="/images/img2.jpg"
               alt="Hero image"
               className="w-full h-auto object-center object-cover"
               width={500}
               height={500}
-            />
+            /> */}
+             <img src="https://dcnepal.pythonanywhere.com/media/uploads/upload/img3.jpg" alt="" className="w-full h-auto object-center object-cover"/>
             <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-indigo-600/10"></div>
           </div>
           <div className="col-span-1 row-span-2 flex bg-yellow-500/70 rounded-2xl">
-            <Image
+            {/* <Image
               src="/images/img1.png"
               alt="Hero image"
               className="w-full h-auto object-bottom object-contain"
               width={200}
               height={200}
-            />
+            /> */}
+                <img src="https://dcnepal.pythonanywhere.com/media/uploads/upload/img1.png" alt="" className="w-full h-auto object-bottom object-contain"/>
           </div>
           <div className=" col-span-2 row-span-1 flex flex-col bg-blue-100 rounded-2xl p-5 gap-1">
             <span className="text-gray-500 text-3xl font-semibold">20+</span>

@@ -173,7 +173,7 @@ const Courses = () => {
     try {
       const res = await api.get("/course/");
       if (res.status == 200) {
-        console.log("response", res);
+        // console.log("response", res);
         // setCoursesCategory(res.data)
         setCoursesList(res.data);
         setLoading(false);

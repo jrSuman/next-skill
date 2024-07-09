@@ -8,7 +8,7 @@ const api = axios.create({
   },
 });
 
-console.log('called', process.env)
+// console.log('called', process.env)
 
 // Add a request interceptor
 // api.interceptors.request.use(
