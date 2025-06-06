@@ -172,6 +172,8 @@ const Courses = () => {
 
   const [coursesList, setCoursesList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchItem, setSearchItem] = useState('');
+  const [filteredList, setFilteredList] = useState([])
 
   const fetchCourse = async () => {
     setLoading(true);
@@ -181,6 +183,7 @@ const Courses = () => {
         // console.log("response", res);
         // setCoursesCategory(res.data)
         setCoursesList(res.data);
+        setFilteredList(res.data);
         setLoading(false);
       }
     } catch (error) {
@@ -192,6 +195,18 @@ const Courses = () => {
   useEffect(() => {
     fetchCourse();
   }, []);
+
+
+  const handleInputChange = (e) => {
+    const searchTerm = e.target.value;
+    setSearchItem(searchTerm)
+
+    const filteredItems = coursesList.filter((elem: any) =>
+      elem.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  
+      setFilteredList(filteredItems);
+  }
 
   return (
     <div className=" mx-auto flex flex-col gap-5">
@@ -236,7 +251,8 @@ const Courses = () => {
           <div className="flex justify-between md:flex-row flex-col md:items-center pb-4 md:gap-10 gap-4">
             <h3 className="text-3xl font-semibold">Courses</h3>
             {/* <div className=""> */}
-            <AppInput placeholder="Search"/>
+            <AppInput placeholder="Search" value={searchItem}
+        onChange={handleInputChange}/>
             {/* </div> */}
           </div>
           {loading && (
@@ -245,8 +261,8 @@ const Courses = () => {
             </>
           )}
           <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 gap-5">
-            {coursesList.length > 0 &&
-              coursesList.map((item:any) => {
+            {filteredList.length > 0 &&
+              filteredList.map((item:any) => {
                 return <AppProductCard key={item.id} data={item} />;
               })}
           </div>

@@ -28,7 +28,7 @@ const TestimonialCard = (props: any) => {
       </div>
       <div className="flex gap-x-5 items-start">
         <div className="w-12 h-12  rounded-full overflow-hidden">
-          <img src={data.image} alt={data.image} className="w-full h-auto object-center object-cover"/>
+          <img src={data.image} alt={data.image} className="w-full h-full object-center object-cover"/>
         </div>
         <div className="flex flex-col flex-1">
           <span className="text-base text-slate-700 font-semibold leading-7">

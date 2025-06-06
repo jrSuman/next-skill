@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -55,15 +55,30 @@ const EnquiryForm = () => {
     },
   });
 
+  const [clientIp, setClientIp] = useState(null)
+
+  async function getClientIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        setClientIp(data.ip);
+    } catch (error) {
+        console.error('Something went wrong', error);
+    }
+  }
+
   const onSubmit = async (data: any) => {
+  
+    
     setLoading(true);
+    
     const formData: any = {
       name: data.name,
       email: data.email,
       contact: data.contact,
       course_name: "",
       course: null,
-      ip: "",
+      ip: clientIp,
       description: data.description,
       extra: {},
     };
@@ -86,6 +101,10 @@ const EnquiryForm = () => {
     setTempUser({});
     reset();
   };
+
+  useEffect(() => {
+    getClientIP()
+  }, [])
   return (
     <>
       <form className="grid gap-5" onSubmit={handleSubmit(onSubmit)}>

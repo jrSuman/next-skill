@@ -89,7 +89,11 @@ const PopularCoursesSection = () => {
       {loading && <><AppMultipleCardLoader /></>}
       <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-8 mb-16">
         {courses.length > 0 &&
-          courses.map((elem) => <AppProductCard key={elem.id} data={elem} />)}
+          courses.map((elem, index) => {
+            if(index <= 5) return (
+              <AppProductCard key={elem.id} data={elem} />
+            )
+          })}
       </div>
       <div className="mb-4">
         <AppExploreBtn>See All Our Courses</AppExploreBtn>

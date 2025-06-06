@@ -1,7 +1,6 @@
-import Image from "next/image";
 import TestimonialCard from "./ui/AppTestimonialCard";
 // import api from "@/app/pages/api/axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 
 const TestimonialSection = () => {
@@ -53,14 +52,10 @@ const TestimonialSection = () => {
     <div className="grid xl:grid-cols-3 lg:grid-cols-2 gap-6 md:py-20 py-14" style={style}>
       <div className="xl:col-span-3 lg:col-span-2 flex items-center justify-center flex-col text-center lg:px-20">
         <h3 className="text-gray-700 text-4xl tracking-tight font-extrabold sm:text-5xl mb-4">
-          What Our Client Says
+          What Our Students Says
         </h3>
         <p className="text-lg mb-14">
-          I’ve written a few thousand words on why traditional “semantic class
-          names” are the reason CSS is hard to maintain, but the truth is you’re
-          never going to believe me until you actually try it. If you can
-          suppress the urge to retch long enough to give it a chance, I really
-          think you’ll wonder how you ever worked with CSS any other way.
+          Real feedback from real learners. Discover how our course has helped students gain skills, grow professionally, and achieve their goals.
         </p>
       </div>
       <div className="flex flex-col gap-6">

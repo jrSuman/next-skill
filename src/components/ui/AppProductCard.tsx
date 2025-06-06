@@ -1,9 +1,5 @@
-// import Image from "next/image";
-// "use client"
 import { Link, useNavigate } from "react-router-dom";
-// import { useRouter } from "next/navigation";
 import AppButton from "./AppButton";
-// import Link from "next/link";
 import React from "react";
 
 const AppProductCard = ({ data }: any) => {
