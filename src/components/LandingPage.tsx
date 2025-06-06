@@ -4,6 +4,8 @@ import TestimonialSection from "./TestimonialSection";
 import UpcomingSection from "./UpcomingSection";
 import React from "react";
 import like from "../assets/images/like.png";
+import img1 from "../assets/images/img1.png";
+
 
 const LandingPage = () => {
   return (
@@ -24,7 +26,7 @@ const LandingPage = () => {
           </div>
           <div className="col-span-1 row-span-2 flex bg-yellow-500/70 rounded-2xl">
             <img
-              src="https://dcnepal.pythonanywhere.com/media/uploads/upload/img1.png"
+              src={img1}
               alt=""
               className="w-full h-auto object-bottom object-contain"
             />
@@ -33,15 +35,13 @@ const LandingPage = () => {
             <span className="text-gray-500 text-3xl font-semibold">20+</span>
             <span className="text-gray-400 text-base">Courses</span>
             <p className="mt-2 md:block hidden">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora,
-              explicabo.
+              Learn from the industrial Experts
             </p>
           </div>
 
-          <div className="md:col-span-2 col-span-3 row-span-2  bg-slate-100 rounded-2xl p-5 relative">
+          <div className="md:col-span-2 col-span-3 row-span-2  bg-slate-100 rounded-2xl p-5 relative lg:min-h-32 min-h-28">
             <p className="pr-14">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora,
-              explicabo.
+            Master your next skill. Power lies in continuous learning and growth.
             </p>
             <div className=" absolute right-0 bottom-0 w-16 h-16  bg-slate-50 rounded-tl-[30px]">
               <div className="relative w-full h-full flex items-end justify-end">
@@ -85,9 +85,7 @@ const LandingPage = () => {
               Find your prefect course and improve your skills.
             </h3>
             <p className="text-gray-500 text-lg mb-14">
-              We have 30+ courses, taught by Industry expert. Lorem ipsum dolor
-              sit, amet consectetur adipisicing elit. Omnis accusamus, quas iure
-              quia id tenetur inventore libero porro neque nostrum.
+             Whether you're aiming to enhance your career, explore a new passion, or gain in-demand skills, our curated selection of courses helps you grow with confidence. Start learning today and take the next step toward your goals.
             </p>
             <AppExploreBtn>Explore All Courses</AppExploreBtn>
           </div>

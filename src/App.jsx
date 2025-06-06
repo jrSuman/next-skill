@@ -9,6 +9,7 @@ import HomePage from "./pages/page";
 import Courses from "./pages/courses";
 import CourseDetails from "./pages/courses/CourseDetails";
 import ContactUs from "./pages/contactUs";
+import About from "./pages/about/About";
 // import HomePage from "./pages/HomePage";
 // import ComingSoon from "./views/comming-soon";
 // import TheFooter from "./components/TheFooter";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/contact-us",
     element: <RootLayout  comp={ContactUs}/>,
+  },
+  {
+    path: "/about",
+    element: <RootLayout  comp={About}/>,
   },
 ]);
 

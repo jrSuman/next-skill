@@ -26,6 +26,7 @@ const schema = yup
   .required();
 
 const RegisterFormModal = (props: any) => {
+  const {isEvent=false, selectedCourse= null} = props;
   const [loading, setLoading] = useState<boolean>(false);
   const [tempUser, setTempUser] = useState<any>({
     // "id": 4,
@@ -42,6 +43,7 @@ const RegisterFormModal = (props: any) => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
   // const [courses, setCourses] = useState([])
   const formRef = useRef<any>(null);
+  const [clientIp, setClientIp] = useState(null)
   const {
     handleSubmit,
     clearErrors,
@@ -57,7 +59,7 @@ const RegisterFormModal = (props: any) => {
       contact: "",
       description: "",
       academic_label: "SEE/SLC",
-      // course: props.selectedCourse
+      // course: selectedCourse
     },
   });
 
@@ -88,9 +90,9 @@ const RegisterFormModal = (props: any) => {
       name: data.name,
       email: data.email,
       contact: data.contact,
-      course_name: props.selectedCourse.title,
-      course: props.selectedCourse.id,
-      ip: "",
+      course_name: selectedCourse.title,
+      course: selectedCourse.id,
+      ip: clientIp,
       description: data.description,
       academic_label: data.academic_label,
     };
@@ -127,6 +129,20 @@ const RegisterFormModal = (props: any) => {
     // console.log('re', formRef.current.click())
     formRef.current.click();
   };
+
+  async function getClientIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        setClientIp(data.ip);
+    } catch (error) {
+        console.error('Something went wrong', error);
+    }
+  }
+
+  useEffect(() => {
+    getClientIP()
+  }, [])
   return (
     <>
       <AppButton onClick={() => openModal()}>Register Now</AppButton>
@@ -137,7 +153,7 @@ const RegisterFormModal = (props: any) => {
         title="Admission Form"
         footerContent={
           <AppButton onClick={() => triggerSubmit()} loading={loading}>
-            Submit Form
+            {isEvent ? 'Submit' : 'Submit Form'}
           </AppButton>
         }
       >
@@ -210,9 +226,9 @@ const RegisterFormModal = (props: any) => {
             )}
           </div> */}
           <div className="flex flex-col">
-            <label className="text-sm mb-1 text-gray-500">Course</label>
+            <label className="text-sm mb-1 text-gray-500">{isEvent ? 'Event': 'Course'}</label>
             <input
-              value={props.selectedCourse.title}
+              value={selectedCourse.title}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 min-w-[280px] max-w-[900px]"
               disabled
             >
@@ -238,7 +254,7 @@ const RegisterFormModal = (props: any) => {
 
           <div className="grid">
             <button type="submit" className="hidden" ref={formRef}>
-              Send Inquiry
+              Submit
             </button>
           </div>
         </form>

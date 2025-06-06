@@ -107,7 +107,7 @@ const AppModal = (props: AppModalInterface) => {
               >
                 <div className="relative w-full h-full md:p-10 p-3 flex justify-center items-center">
                   <div
-                    className="relative p-5 bg-white mx-auto dark:bg-gray-800 sm:p-8 rounded-xl w-full"
+                    className="relative p-5 bg-white mx-auto sm:p-8 rounded-xl w-full"
                     style={{ maxWidth: `${width}px` }}
                   >
                     <h4 className="font-semibold text-xl text-gray-700">

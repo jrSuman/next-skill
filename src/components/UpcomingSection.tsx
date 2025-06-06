@@ -75,7 +75,7 @@ const UpcomingSection = () => {
           </span>
 
           {/* <AppExploreBtn>Register Now</AppExploreBtn> */}
-          <RegisterFormModal selectedCourse={course}>
+          <RegisterFormModal selectedCourse={course} isEvent>
             Register Now
           </RegisterFormModal>
 
